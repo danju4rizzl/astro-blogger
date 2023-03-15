@@ -1,0 +1,91 @@
+---
+// Delecaring TS types
+type Word = string | number
+type Identity = {
+	firstName: string
+	country: string
+	occupation: string
+	hobbies: string[]
+}
+
+// We are creating our variables with const or let
+const owner = "DeejayDev"
+const pageTitle = "About " + owner
+
+const identity: Identity = {
+	firstName: owner,
+	country: "Naija",
+	occupation: "Creator",
+	hobbies: ["Gaming", "Coding", "Drone Flying", "Nature Walks"]
+}
+
+const skills = ["HTML", "CSS", "Javascript", "Astro"]
+
+const happy = true
+const finished = false
+const goal = 3
+
+// We are writing a function that uses one of the types
+const doSomething = (greet: Word) => {
+	return `This is  ${greet}`
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+			<a href="/blog">Blog</a>
+		</nav>
+
+		<h1>{pageTitle}</h1>
+		<p>Here are a few stacks about me: 😀</p>
+		<ul>
+			<li>My name is {identity.firstName}</li>
+			<li>
+				I am from {identity.country} and I work as a {identity.occupation}
+			</li>
+			{
+				identity.hobbies.length >= 2 && (
+					<li>
+						my 2 favorite hobbies are {identity.hobbies[0]} and{" "}
+						{identity.hobbies[1]}
+					</li>
+				)
+			}
+		</ul>
+		<div class="">
+			<p>My skills are: 👇</p>
+			<ul>{skills.map((skill) => <li>{skill}</li>)}</ul>
+		</div>
+		{happy && <p>I am happy with Astro</p>}
+		{finished && <p>I have finished the Astro tuts</p>}
+		{
+			goal === 3 ? (
+				<p>My gaol is done in 3 days😀</p>
+			) : (
+				<p>My Goal is not yet done.😱</p>
+			)
+		}
+	</body>
+</html>
+
+<style>
+	h1 {
+		color: palegreen;
+	}
+	.higlight {
+		background-color: papayawhip;
+		padding: 2px 3px;
+		color: darkslategrey;
+	}
+</style>
