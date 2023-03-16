@@ -1,4 +1,6 @@
 ---
+import Layout from "../layouts/Layout.astro"
+
 type Word = string | number
 
 const owner: Word = "DeejayDev"
@@ -13,8 +15,8 @@ const pageTitle = "Learning Astro with " + owner
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{pageTitle}</title>
 	</head>
-	<body>
-		<!-- Navigation -->
+
+	<Layout title={pageTitle}>
 		<nav style="display: flex; justify-content: center; gap: 1.5rem">
 			<a href="/">Home</a>
 			<a href="/about">About</a>
@@ -29,16 +31,19 @@ const pageTitle = "Learning Astro with " + owner
 			<li><a href="/posts/post-2/">Post 2</a></li>
 			<li><a href="/posts/post-3/">Post 3</a></li>
 		</ul>
-	</body>
-</html>
+	</Layout>
+	<!-- Navigation -->
 
-<style>
-	h1 {
-		color: lightcoral;
-	}
-	.higlight {
-		background-color: papayawhip;
-		padding: 2px 3px;
-		color: darkslategrey;
-	}
-</style>
+
+
+	<style>
+		h1 {
+			color: lightcoral;
+		}
+		.higlight {
+			background-color: papayawhip;
+			padding: 2px 3px;
+			color: darkslategrey;
+		}
+	</style>
+</html>

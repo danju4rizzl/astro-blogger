@@ -1,4 +1,7 @@
 ---
+// Making import statements here
+import "../styles/global.css"
+
 // Delecaring TS types
 type Word = string | number
 type Identity = {
@@ -12,18 +15,22 @@ type Identity = {
 const owner = "DeejayDev"
 const pageTitle = "About " + owner
 
+const happy = true
+const finished = false
+const goal = 3
+
+let skillColor = "teal"
+let fontWeight = 800
+let textCase = "uppercase"
+
+const skills = ["HTML", "CSS", "Javascript", "Astro"]
+
 const identity: Identity = {
 	firstName: owner,
 	country: "Naija",
 	occupation: "Creator",
 	hobbies: ["Gaming", "Coding", "Drone Flying", "Nature Walks"]
 }
-
-const skills = ["HTML", "CSS", "Javascript", "Astro"]
-
-const happy = true
-const finished = false
-const goal = 3
 
 // We are writing a function that uses one of the types
 const doSomething = (greet: Word) => {
@@ -65,7 +72,7 @@ const doSomething = (greet: Word) => {
 		</ul>
 		<div class="">
 			<p>My skills are: 👇</p>
-			<ul>{skills.map((skill) => <li>{skill}</li>)}</ul>
+			<ul>{skills.map((skill) => <li class="skill">{skill}</li>)}</ul>
 		</div>
 		{happy && <p>I am happy with Astro</p>}
 		{finished && <p>I have finished the Astro tuts</p>}
@@ -79,13 +86,20 @@ const doSomething = (greet: Word) => {
 	</body>
 </html>
 
-<style>
+<style define:vars={{ skillColor, fontWeight, textCase }}>
 	h1 {
-		color: palegreen;
+		color: purple;
+		font-size: 4rem;
 	}
 	.higlight {
 		background-color: papayawhip;
 		padding: 2px 3px;
 		color: darkslategrey;
+	}
+
+	.skill {
+		color: var(--skillColor);
+		font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
 	}
 </style>
