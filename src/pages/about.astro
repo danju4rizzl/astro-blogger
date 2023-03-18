@@ -1,5 +1,6 @@
 ---
 // Making import statements here
+import BaseLayout from "../layouts/BaseLayout.astro"
 import "../styles/global.css"
 
 // Delecaring TS types
@@ -12,16 +13,12 @@ type Identity = {
 }
 
 // We are creating our variables with const or let
-const owner = "DeejayDev"
-const pageTitle = "About " + owner
+const owner = "Deejay"
+const pageTitle = "About " + owner + "👏"
 
 const happy = true
 const finished = false
 const goal = 3
-
-let skillColor = "teal"
-let fontWeight = 800
-let textCase = "uppercase"
 
 const skills = ["HTML", "CSS", "Javascript", "Astro"]
 
@@ -38,68 +35,33 @@ const doSomething = (greet: Word) => {
 }
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<!-- Navigation -->
-		<nav>
-			<a href="/">Home</a>
-			<a href="/about">About</a>
-			<a href="/blog">Blog</a>
-		</nav>
-
-		<h1>{pageTitle}</h1>
-		<p>Here are a few stacks about me: 😀</p>
-		<ul>
-			<li>My name is {identity.firstName}</li>
-			<li>
-				I am from {identity.country} and I work as a {identity.occupation}
-			</li>
-			{
-				identity.hobbies.length >= 2 && (
-					<li>
-						my 2 favorite hobbies are {identity.hobbies[0]} and{" "}
-						{identity.hobbies[1]}
-					</li>
-				)
-			}
-		</ul>
-		<div class="">
-			<p>My skills are: 👇</p>
-			<ul>{skills.map((skill) => <li class="skill">{skill}</li>)}</ul>
-		</div>
-		{happy && <p>I am happy with Astro</p>}
-		{finished && <p>I have finished the Astro tuts</p>}
+<BaseLayout pageTitle={pageTitle}>
+	<p>Here are a few stacks about me: 😀</p>
+	<ul>
+		<li>My name is {identity.firstName}</li>
+		<li>
+			I am from {identity.country} and I work as a {identity.occupation}
+		</li>
 		{
-			goal === 3 ? (
-				<p>My gaol is done in 3 days😀</p>
-			) : (
-				<p>My Goal is not yet done.😱</p>
+			identity.hobbies.length >= 2 && (
+				<li>
+					my 2 favorite hobbies are {identity.hobbies[0]} and{" "}
+					{identity.hobbies[1]}
+				</li>
 			)
 		}
-	</body>
-</html>
-
-<style define:vars={{ skillColor, fontWeight, textCase }}>
-	h1 {
-		color: purple;
-		font-size: 4rem;
+	</ul>
+	<div class="">
+		<p>My skills are: 👇</p>
+		<ul>{skills.map((skill) => <li class="skill">{skill}</li>)}</ul>
+	</div>
+	{happy && <p>I am happy with Astro</p>}
+	{finished && <p>I have finished the Astro tuts</p>}
+	{
+		goal === 3 ? (
+			<p>My gaol is done in 3 days😀</p>
+		) : (
+			<p>My Goal is not yet done.😱</p>
+		)
 	}
-	.higlight {
-		background-color: papayawhip;
-		padding: 2px 3px;
-		color: darkslategrey;
-	}
-
-	.skill {
-		color: var(--skillColor);
-		font-weight: var(--fontWeight);
-		text-transform: var(--textCase);
-	}
-</style>
+</BaseLayout>

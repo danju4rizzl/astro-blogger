@@ -1,0 +1,28 @@
+---
+type SocialLink = { platform: string; username: string }
+
+const socialLinks: SocialLink = {
+	platform: "github",
+	username: "danju4rizzl"
+}
+
+import Social from "./Social.astro"
+---
+
+<footer>
+	<p>
+		Learn more about my projects on <a
+			href={`https://www.${socialLinks.platform}.com/${socialLinks.username}`}
+			>{socialLinks.platform}</a
+		>!
+	</p>
+	<Social platform="twitter" username="real_deejay_dev" />
+	<Social platform="fb" username="real_deejay_dev" />
+	<Social platform="youtube" username="deejaydev" />
+</footer>
+
+<style>
+	footer {
+		display: grid;
+	}
+</style>

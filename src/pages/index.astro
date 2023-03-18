@@ -1,25 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro"
-const pageTitle = "Welcome to DeejayDev's Blog"
+import BaseLayout from "../layouts/BaseLayout.astro"
+const pageTitle = "Home Page 👋"
 import "../styles/global.css"
 ---
 
-<!-- Using the layout component for parmanent components displayed  in the App-->
-<Layout title={pageTitle}>
-	<h1>Hello World</h1>
-	<nav>
-		<a href="/">Home</a>
-		<a href="/about">About</a>
-		<a href="/blog">Blog</a>
-	</nav>
+<!-- Using the BaseLayout component for parmanent components displayed  in the App-->
+<BaseLayout pageTitle={pageTitle}>
+	<h2>My awesome blog subtitle</h2>
+</BaseLayout>
 
-	<h1>
-		This is the<span class="higlight">Home</span>page
-	</h1>
-</Layout>
-
-<style>
-	h1 {
-		color: red;
-	}
-</style>
+<style></style>
