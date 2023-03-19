@@ -1,17 +1,16 @@
 ---
-title: "My first blog"
+layout: ../../layouts/MarkdownPostLayout.astro #remember to add this to the other pages
+title: "My first blog post"
 pubDate: 2023-03-01
 description: "This is a test post for my astro blog"
-author: "DeejayDev Master"
+author: "DeejayDev"
 image:
-  url: "https://astro.build/assets/blog/astro-1-release-update/cover.jpeg"
+  url: "https://avatars.githubusercontent.com/u/25222958?v=4"
   alt: "This is the logo of deejay"
 tags: ["astro", "Blogging", "learning Astro"]
 ---
 
 # My First Blog Post that Works
-
-Published on: 2022-07-01
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 

@@ -1,7 +1,26 @@
 ---
+// ℹ️ This file is post layout ONLY
+import BaseLayout from "./BaseLayout.astro"
 const { frontmatter } = Astro.props
 ---
 
-<h1>{frontmatter.title}</h1>
-<p>Written by {frontmatter.author}</p>
-<slot />
+<!-- We are using the BaseLayout to add the same style to the post page with a diffrent template -->
+<BaseLayout pageTitle={frontmatter.title}>
+	<p>Published on: {frontmatter.pubDate.slice(0, 10)}</p>
+	<p>Written by 👉 {frontmatter.author}!</p>
+	<p><em>{frontmatter.description}</em></p>
+	<img
+		src={frontmatter.image.url}
+		alt={frontmatter.image.alt}
+		class="profile-img"
+		width="80px"
+		style="border-radius: 50%;"
+	/>
+	<slot />
+	<div class="">
+		<h6>Post Tags:</h6>
+		<ul>
+			{frontmatter.tags.map((tag) => <li>{tag}</li>)}
+		</ul>
+	</div>
+</BaseLayout>

@@ -1,6 +1,7 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro #remember to add this to the other pages
 title: My Second Blog Post
-author: Astro Learner
+author: DeejayDev
 description: "After learning some Astro, I couldn't stop!"
 image:
   url: "https://astro.build/assets/blog/astro-showcase/astro-showcase-screenshot.jpg"

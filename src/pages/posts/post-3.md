@@ -1,6 +1,7 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro #remember to add this to the other pagesDee
 title: My Third Blog Post
-author: Astro Learner
+author: DeejayDev
 description: "I had some challenges, but asking in the community really helped!"
 image:
   url: "https://astro.build/assets/blog/community-day/cover.jpg"
