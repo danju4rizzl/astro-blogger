@@ -1,12 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+import Greeting from "../components/Greetings"
 const pageTitle = "Home Page 👋"
-import "../styles/global.css"
 ---
 
 <!-- Using the BaseLayout component for parmanent components displayed  in the App-->
 <BaseLayout pageTitle={pageTitle}>
 	<h2>My awesome blog subtitle</h2>
-</BaseLayout>
 
-<style></style>
+	<Greeting
+		client:load
+		messages={[
+			"Howfa",
+			"Howfa nah",
+			"Hi",
+			"Hello",
+			"Howdy",
+			"Hey there",
+			"How your side",
+			"How body"
+		]}
+	/>
+</BaseLayout>
