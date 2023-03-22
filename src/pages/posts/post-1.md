@@ -7,7 +7,7 @@ author: "DeejayDev"
 image:
   url: "https://avatars.githubusercontent.com/u/25222958?v=4"
   alt: "This is the logo of deejay"
-tags: ["astro", "Blogging", "learning Astro"]
+tags: ["astro", "react", "new"]
 ---
 
 # My First Blog Post that Works
