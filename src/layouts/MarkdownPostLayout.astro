@@ -27,12 +27,6 @@ const { frontmatter } = Astro.props
 	</div>
 
 	<slot />
-	<div class="">
-		<h6>Post Tags:</h6>
-		<ul>
-			{frontmatter.tags.map((tag) => <li>{tag}</li>)}
-		</ul>
-	</div>
 </BaseLayout>
 
 <style>
