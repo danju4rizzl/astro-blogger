@@ -1,10 +1,39 @@
 ---
+export const navLinks = [
+	{ goto: "/", title: "Home" },
+	{ goto: "/about", title: "About" },
+	{ goto: "/blog", title: "Blog" },
+	{ goto: "/tags", title: "Tags" }
+]
 ---
 
-<!-- Navigation -->
+<!-- Navigation TODO: change this to tailwindcss   -->
 <div class="nav-links">
-	<a href="/">Home</a>
-	<a href="/about">About</a>
-	<a href="/blog">Blog</a>
-	<a href="/tags">Tags</a>
+	{navLinks.map((item) => <a href={item.goto}>{item.title}</a>)}
 </div>
+
+<style>
+	.nav-links {
+		width: 100%;
+		top: 5rem;
+		left: 48px;
+		background-color: #ff9776;
+		display: none;
+		margin: 0;
+	}
+
+	.nav-links a {
+		display: block;
+		text-align: center;
+		padding: 10px 0;
+		text-decoration: none;
+		font-size: 1.1rem;
+		text-transform: capitalize;
+		border-radius: 15px;
+	}
+
+	.nav-links a:hover,
+	a:focus {
+		background-color: #2cda9d;
+	}
+</style>

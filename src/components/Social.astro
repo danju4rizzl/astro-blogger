@@ -1,18 +1,50 @@
 ---
-const { platform, username } = Astro.props
+import { Icon } from "astro-icon"
+const socialData = [
+	{
+		id: 1,
+		name: "Instagram",
+		link: "https://instagram.com/real_deejay_dev",
+		icons: "bi:instagram"
+	},
+	{
+		id: 2,
+		name: "Telegram",
+		link: "https://t.me/+hEQueA4gvk9lYjJk",
+		icons: "bi:telegram"
+	},
+	{
+		id: 3,
+		name: "Twitter",
+		link: "https://twitter.com/real_deejay_dev",
+		icons: "bi:twitter"
+	},
+	{
+		id: 4,
+		name: "YouTube",
+		link: "https://www.youtube.com/channel/UCVqW6zTIiuJYAOsH2Rp3yVA?confirmation=1?sub_confirmation=1",
+		icons: "bi:youtube"
+	},
+	{
+		id: 5,
+		name: "Github",
+		link: "https://github.com/danju4rizzl",
+		icons: "bi:github"
+	}
+]
 ---
 
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
-
-<style>
-	a {
-		padding: 0.5rem 1rem;
-		color: white;
-		background-color: #4c1d95;
-		text-decoration: none;
-
-		display: flex;
-		gap: 1rem;
-		margin-top: 2rem;
+<div class="flex justify-center space-x-5">
+	{
+		socialData.map((item) => (
+			<a
+				href={item.link}
+				title={`Visit ${item.name}`}
+				class="hover:text-emerald-400 transition-colors duration-500 "
+				target="_blank"
+			>
+				<Icon name={item.icons} />
+			</a>
+		))
 	}
-</style>
+</div>

@@ -1,28 +1,44 @@
 ---
-type SocialLink = { platform: string; username: string }
+import { Icon } from "astro-icon"
 
-const socialLinks: SocialLink = {
-	platform: "github",
-	username: "danju4rizzl"
-}
+const d = new Date()
+const currentYear = d.getFullYear()
 
-import Social from "./Social.astro"
+import { Constance } from "../helpers/constance"
+import Text from "./Ui/Text.astro"
 ---
 
-<footer>
-	<p>
-		Learn more about my projects on <a
-			href={`https://www.${socialLinks.platform}.com/${socialLinks.username}`}
-			>{socialLinks.platform}</a
-		>!
+<footer class="mt-32 py-10 space-y-5 grid justify-center text-center">
+	<Text content={Constance.footer.slug} moClass="font-semibold text-sm" />
+
+	<div class="flex justify-center space-x-5">
+		{
+			Constance.socialData.map((item) => (
+				<a
+					href={item.link}
+					title={`Visit ${item.name}`}
+					class="hover:text-emerald-400 transition-colors duration-500 "
+					target="_blank"
+				>
+					<Icon name={item.icons} />
+				</a>
+			))
+		}
+	</div>
+
+	<p class="text-xs">
+		Copyright © {currentYear}
+		<a href="/"> {Constance.siteData.owner}</a>
 	</p>
-	<Social platform="twitter" username="real_deejay_dev" />
-	<Social platform="fb" username="real_deejay_dev" />
-	<Social platform="youtube" username="deejaydev" />
 </footer>
 
 <style>
-	footer {
-		display: grid;
+	[astro-icon] {
+		height: 26px;
 	}
+	/* [astro-icon="annotation"] {
+		height: 15px;
+		
+		fill: red;
+	} */
 </style>

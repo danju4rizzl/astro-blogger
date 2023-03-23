@@ -1,0 +1,10 @@
+---
+export interface TextProps {
+	content: string
+	moClass?: string
+}
+
+const { content, moClass } = Astro.props
+---
+
+<p class={`text-xl ${moClass}`}>{content}</p>

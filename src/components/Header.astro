@@ -4,21 +4,17 @@ import Navigation from "./Navigation.astro"
 import ThemeIcon from "./ThemeIcon.astro"
 ---
 
-<header>
-	<div class="logo">
-		<img src="https://avatars.githubusercontent.com/u/25222958?v=4" alt="" />
-	</div>
+<header class="flex justify-between items-center mt-5 mb-20">
+	<a class="" href="/">
+		<img
+			src="/logo.svg"
+			alt="Logo for deejaydev's blog"
+			class="w-16 h-16 rounded-full"
+		/>
+	</a>
 	<nav>
 		<Hamburger />
 		<Navigation />
 	</nav>
 	<ThemeIcon />
 </header>
-
-<style>
-	.logo img {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-	}
-</style>

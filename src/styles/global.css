@@ -1,10 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Deejay's default CSS */
+:root {
+	--color-primary: #2cda9d;
+	--color-secondary: #ff4081;
+	--color-white: #ffffff;
+	--color-black: #212121;
+}
+
 * {
 	box-sizing: border-box;
 }
 
 html {
 	background-color: #f1f5f9;
-	font-family: sans-serif;
+	font-family: Poppins;
 	margin: 0;
 	padding: 0;
 }
@@ -12,6 +22,7 @@ html {
 body {
 	padding: 1rem 3rem;
 	line-height: 1.5;
+	transition: all 250ms;
 }
 
 html.dark {
@@ -19,6 +30,7 @@ html.dark {
 	color: #fff;
 }
 
+/*dark mode  nav styles */
 .dark .nav-links a {
 	color: #fff;
 }
@@ -34,36 +46,6 @@ html.dark {
 	width: 40px;
 	height: 5px;
 	margin-bottom: 10px;
-	background-color: #ff9776;
-}
-header {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.nav-links {
-	width: 100%;
-	top: 5rem;
-	left: 48px;
-	background-color: #ff9776;
-	display: none;
-	margin: 0;
-}
-
-.nav-links a {
-	display: block;
-	text-align: center;
-	padding: 10px 0;
-	text-decoration: none;
-	font-size: 1.2rem;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-.nav-links a:hover,
-a:focus {
 	background-color: #ff9776;
 }
 
