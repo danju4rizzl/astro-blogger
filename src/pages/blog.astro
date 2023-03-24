@@ -12,13 +12,21 @@ const pageTitle = owner + " Blog ✍️ "
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<ul>
-		{
-			allPost.map((post) => (
-				<BlogPost url={post.url} title={post.frontmatter.title} />
-			))
-		}
-	</ul>
+	<div class="my-12 flex place-content-center">
+		<ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+			{
+				allPost.map((post) => (
+					<BlogPost
+						url={post.url}
+						title={post.frontmatter.title}
+						cover={post.frontmatter.cover}
+						tags={post.frontmatter.tags}
+						pubDate={post.frontmatter.pubDate}
+					/>
+				))
+			}
+		</ul>
+	</div>
 </BaseLayout>
 
 <style></style>

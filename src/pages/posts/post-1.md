@@ -8,6 +8,7 @@ image:
   url: "https://avatars.githubusercontent.com/u/25222958?v=4"
   alt: "This is the logo of deejay"
 tags: ["astro", "react", "new"]
+cover: "https://img.youtube.com/vi/OiPaKFtRikQ/maxresdefault.jpg"
 ---
 
 # My First Blog Post that Works

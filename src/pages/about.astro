@@ -2,61 +2,31 @@
 // Making import statements here
 import BaseLayout from "../layouts/BaseLayout.astro"
 import "../styles/global.css"
+import { Constance } from "../helpers/constance"
 
-// Delecaring TS types
-type Word = string | number
-type Identity = {
-	firstName: string
-	country: string
-	occupation: string
-	hobbies: string[]
-}
+import Text from "../components/Ui/Text.astro"
 
 // We are creating our variables with const or let
-const owner = "Deejay"
-const pageTitle = "About " + owner + "👏"
-
-const happy = true
-const finished = true
-const goal = 3
-
-const skills = ["HTML", "CSS", "Javascript", "Astro"]
-
-const identity: Identity = {
-	firstName: owner,
-	country: "Naija",
-	occupation: "Creator",
-	hobbies: ["Gaming", "Coding", "Drone Flying", "Nature Walks"]
-}
+const pageTitle = "About " + Constance.siteData.firstName + "❓"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>Here are a few stacks about me: 😀</p>
-	<ul>
-		<li>My name is {identity.firstName}</li>
-		<li>
-			I am from {identity.country} and I work as a {identity.occupation}
-		</li>
-		{
-			identity.hobbies.length >= 2 && (
-				<li>
-					my 2 favorite hobbies are {identity.hobbies[0]} and{" "}
-					{identity.hobbies[1]}
-				</li>
-			)
-		}
-	</ul>
-	<div class="">
-		<p>My skills are: 👇</p>
-		<ul>{skills.map((skill) => <li class="skill">{skill}</li>)}</ul>
+	<div class="my-12 flex flex-col items-center space-y-14">
+		<Text
+			content={Constance.siteData.bio.aboutMeIntro}
+			moClass={"w-1/2 text-center"}
+		/>
+		<Text
+			content={Constance.siteData.bio.aboutMe}
+			moClass={"w-1/2 text-center"}
+		/>
+
+		<Text
+			content={Constance.siteData.bio.aboutAchievement}
+			moClass={"w-1/2 text-center"}
+		/>
+		<a href="#" target="_blank" class="bg-emerald-400 px-2 py-1 rounded"
+			>Check it Out 👈</a
+		>
 	</div>
-	{happy && <p>I am happy with Astro!!!!!!!</p>}
-	{finished && <p>I have finished the Astro tuts</p>}
-	{
-		goal === 3 ? (
-			<p>My gaol is done in 3 days😀</p>
-		) : (
-			<p>My Goal is not yet done.😱</p>
-		)
-	}
 </BaseLayout>

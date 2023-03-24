@@ -1,4 +1,5 @@
 ---
+import Text from "../../components/Ui/Text.astro"
 import BaseLayout from "../../layouts/BaseLayout.astro"
 const allPosts = await Astro.glob("../posts/*.md")
 const postTags = [
@@ -8,16 +9,24 @@ const pageTitle = "Tag index"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="tags">
-		{
-			postTags.map((tag) => (
-				<p>
-					<a class="tag" href={`/tags/${tag}`}>
-						{tag}
-					</a>
-				</p>
-			))
-		}
+	<Text content="find post by tags " moClass="text-center my-12" />
+	<div class="py-24 flex justify-center">
+		<div
+			class="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-6 gap-y-8 xl:gap-x-5"
+		>
+			{
+				postTags.map((tag) => (
+					<p>
+						<a
+							class="py-2 px-4 rounded-lg text-lg  bg-emerald-500 text-white "
+							href={`/tags/${tag}`}
+						>
+							{tag}
+						</a>
+					</p>
+				))
+			}
+		</div>
 	</div>
 </BaseLayout>
 

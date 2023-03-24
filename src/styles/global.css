@@ -20,9 +20,7 @@ html {
 }
 
 body {
-	padding: 1rem 3rem;
 	line-height: 1.5;
-	transition: all 250ms;
 }
 
 html.dark {
@@ -52,6 +50,8 @@ html.dark {
 .expanded {
 	display: unset;
 }
+
+/* Styles for mobile screens */
 
 @media screen and (min-width: 636px) {
 	.nav-links {

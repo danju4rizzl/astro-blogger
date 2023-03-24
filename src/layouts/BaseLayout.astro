@@ -1,8 +1,9 @@
 ---
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
-import "../styles/global.css"
 import Heading from "../components/Ui/Heading.astro"
+import "../styles/global.css"
+
 const { pageTitle } = Astro.props
 
 export const owner = "Danjuma (DeejayDev) Ashiwaju"
@@ -21,11 +22,11 @@ let textCase = "uppercase"
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-	<body>
+	<body class="px-5 md:px-16 2xl:px-28">
 		<Header />
 
 		<!-- Always shows the page title -->
-		<Heading content={pageTitle} moClass="text-center font-bold" />
+		<Heading content={pageTitle} moClass="text-center font-bold " />
 
 		<slot />
 

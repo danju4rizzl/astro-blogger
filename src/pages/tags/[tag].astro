@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import BlogPost from "../../components/BlogPost.astro"
 
+import Text from "../../components/Ui/Text.astro"
+
 export async function getStaticPaths() {
 	const allPosts = await Astro.glob("../posts/*.md")
 
@@ -27,11 +29,17 @@ console.log(posts)
 ---
 
 <BaseLayout pageTitle={tag}>
-	<p>posts tagged with {tag}</p>
-	<ul>
+	<Text content={`Post with ${tag}`} moClass={`text-center my-12`} />
+	<ul class="px-5 md:px-12 xl:px-80 space-y-24">
 		{
 			posts.map((post) => (
-				<BlogPost url={post.url} title={post.frontmatter.title} />
+				<BlogPost
+					url={post.url}
+					title={post.frontmatter.title}
+					cover={post.frontmatter.cover}
+					tags={post.frontmatter.tags}
+					pubDate={post.frontmatter.pubDate}
+				/>
 			))
 		}
 	</ul>

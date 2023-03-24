@@ -1,7 +1,24 @@
 ---
-const { url, title } = Astro.props
+const { url, title, cover, tags, pubDate } = Astro.props
 ---
 
-<li>
-	<a href={url}>{title}</a>
+<li
+	class="pb-6 shadow-lg rounded-xl hover:shadow-2xl hover:-translate-y-2 duration-300"
+>
+	<img src={cover} alt="" class="mb-5 w-full object-cover rounded-xl" />
+	<div class="px-5">
+		<a class="hover:text-emerald-500 text-lg font-bold" href={url}>{title}</a>
+		<div class="flex my-3 justify-between">
+			<div class="space-x-5">
+				{
+					tags.map((tag: string) => (
+						<small class="py-1 px-2 text-xs rounded  bg-emerald-300/20 ">
+							{tag}
+						</small>
+					))
+				}
+			</div>
+			<p class="font-bold">{pubDate.slice(0, 10)}</p>
+		</div>
+	</div>
 </li>

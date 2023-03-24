@@ -3,7 +3,15 @@ export const Constance = {
 		firstName: "Danjuma",
 		lastName: "Ashiwaju",
 		nickName: "DeejayDev",
-		owner: "Danjuma (DeejayDev) Ashiwaju"
+		owner: "Danjuma (DeejayDev) Ashiwaju",
+		bio: {
+			aboutMeIntro: `I'm a self-taught web developer 💻 and blockchain enthusiast ⛓️ I  enjoy learning technologies and sharing technologies.`,
+			aboutMe: ` Every day I try to build something interesting because
+			tech never stops evolving so, I can't  stop building and learning. Since my first "Hello World" programme, I've been hooked. I want to give
+			something back to the community, that is why I created this blog to share
+			my knowledge in writing.`,
+			aboutAchievement: `	If reading is not your thing no problem, I just started my new youtube channel with a twist It is in Nigerian Pidgin English. If you are wondering why? Because there are no content online about programming in Pidgin (Broken) English`
+		}
 	},
 	socialData: [
 		{
