@@ -3,6 +3,7 @@ import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import Heading from "../components/Ui/Heading.astro"
 import "../styles/global.css"
+import NetlifyIdentity from "../components/NetlifyIdentity"
 
 const { pageTitle } = Astro.props
 
@@ -29,12 +30,14 @@ let textCase = "uppercase"
 		<Heading content={pageTitle} moClass="text-center font-bold " />
 
 		<slot />
+		<NetlifyIdentity client:load />
 
 		<Footer />
-
 		<script>
 			import "../scripts/menu.js"
 		</script>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+		></script>
 	</body>
 </html>
 
