@@ -1,32 +1,53 @@
 ---
 // ℹ️ This file is post layout ONLY
 import BaseLayout from "./BaseLayout.astro"
+import Text from "../components/Ui/Text.astro"
+import TagBadge from "../components/TagBadge.astro"
+import Heading from "../components/Ui/Heading.astro"
 const { frontmatter } = Astro.props
 ---
 
 <!-- We are using the BaseLayout to add the same style to the post page with a diffrent template -->
 <BaseLayout pageTitle={frontmatter.title}>
-	<p>Published on: {frontmatter.pubDate.slice(0, 10)}</p>
-	<p>Written by 👉 {frontmatter.author}!</p>
-	<p><em>{frontmatter.description}</em></p>
-	<img
-		src={frontmatter.image.url}
-		alt={frontmatter.image.alt}
-		width="80px"
-		style="border-radius: 50%;"
-	/>
-
-	<div class="tags">
-		{
-			frontmatter.tags.map((tag) => (
-				<p class="tag">
-					<a href={`/tags/${tag}`}>{tag}</a>
-				</p>
-			))
-		}
+	<div class="my-12 2xl:px-80">
+		<div class="flex flex-col items-center space-y-5">
+			<img
+				src={frontmatter.cover}
+				alt={frontmatter.image.alt}
+				class="rounded-lg"
+			/>
+			<TagBadge tags={frontmatter.tags} />
+		</div>
+		<div class="my-12 space-y-5">
+			<Text
+				content={frontmatter.description}
+				moClass={"italic text-base text-center"}
+			/>
+			<div class="">
+				<Heading content="Table of Contents" moClass={"text-xl"} />
+				{
+					frontmatter.sections && (
+						<ul>
+							{frontmatter.sections.map((section, idx) => (
+								<li class="my-3">
+									{++idx}:
+									<a
+										href={`#${section.replace(/\s/g, "-")}`}
+										class="text-lg text-emerald-500 hover:text-emerald-600"
+									>
+										{section}
+									</a>
+								</li>
+							))}
+						</ul>
+					)
+				}
+			</div>
+		</div>
+		<div class="post-container space-y-5">
+			<slot />
+		</div>
 	</div>
-
-	<slot />
 </BaseLayout>
 
 <style>

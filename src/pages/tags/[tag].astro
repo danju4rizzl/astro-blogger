@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro"
 import BlogPost from "../../components/BlogPost.astro"
 
 import Text from "../../components/Ui/Text.astro"
-
+import { toCapitalize } from "../../utils"
 export async function getStaticPaths() {
 	const allPosts = await Astro.glob("../posts/*.md")
 
@@ -24,12 +24,13 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params
 const { posts } = Astro.props
-
-console.log(posts)
 ---
 
-<BaseLayout pageTitle={tag}>
-	<Text content={`Post with ${tag}`} moClass={`text-center my-12`} />
+<BaseLayout pageTitle={toCapitalize(tag)}>
+	<Text
+		content={`Post with ${toCapitalize(tag)}`}
+		moClass={`text-center my-12`}
+	/>
 	<ul class="px-5 md:px-12 xl:px-80 space-y-24">
 		{
 			posts.map((post) => (

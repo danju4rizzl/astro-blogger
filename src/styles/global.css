@@ -51,6 +51,34 @@ html.dark {
 	display: unset;
 }
 
+/* default styles for blog posts are here*/
+.post-container h1,
+.post-container h2,
+.post-container h3 {
+	font-weight: bold;
+}
+.post-container h1 {
+	font-size: 35px;
+}
+
+.post-container h2 {
+	font-size: 25px;
+}
+
+.post-container h3 {
+	font-size: 20px;
+}
+
+.post-container p {
+	font-size: 18px;
+}
+
+.post-container .astro-code {
+	padding: 25px;
+	max-height: 25rem;
+	border-radius: 0.5rem;
+}
+
 /* Styles for mobile screens */
 
 @media screen and (min-width: 636px) {
