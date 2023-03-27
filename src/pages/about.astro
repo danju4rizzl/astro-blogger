@@ -8,23 +8,16 @@ import Text from "../components/Ui/Text.astro"
 
 // We are creating our variables with const or let
 const pageTitle = "About " + Constance.siteData.firstName + "❓"
+
+const owenerBio = Constance.siteData.bio
+const bio = Object.values(owenerBio)
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="my-12 flex flex-col items-center space-y-14">
-		<Text
-			content={Constance.siteData.bio.aboutMeIntro}
-			moClass={"w-1/2 text-center"}
-		/>
-		<Text
-			content={Constance.siteData.bio.aboutMe}
-			moClass={"w-1/2 text-center"}
-		/>
-
-		<Text
-			content={Constance.siteData.bio.aboutAchievement}
-			moClass={"w-1/2 text-center"}
-		/>
+	<div
+		class="my-12 lg:px-44 2xl:px-80 flex flex-col items-center space-y-14 text-center"
+	>
+		{bio.map((b) => <Text content={b} />)}
 		<a href="#" target="_blank" class="bg-emerald-400 px-2 py-1 rounded"
 			>Check it Out 👈</a
 		>
